@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10.10.2018 22:56:46 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.model.Buch" table="BUCH" schema="ONLINEBIBLIOTHEK" optimistic-lock="version">
+        <id name="title" type="string">
+            <column name="TITLE" length="30" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="person" class="com.model.Person" fetch="select">
+            <column name="NACHNAME" length="30" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

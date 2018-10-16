@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10.10.2018 22:56:46 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.model.Person" table="PERSON" schema="ONLINEBIBLIOTHEK" optimistic-lock="version">
+        <id name="nachname" type="string">
+            <column name="NACHNAME" length="30" />
+            <generator class="assigned" />
+        </id>
+        <property name="vorname" type="string">
+            <column name="VORNAME" length="30" not-null="true" />
+        </property>
+        <property name="adresse" type="string">
+            <column name="ADRESSE" length="30" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="30" />
+        </property>
+        <property name="passwort" type="string">
+            <column name="PASSWORT" length="30" />
+        </property>
+        <set name="buches" table="BUCH" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NACHNAME" length="30" />
+            </key>
+            <one-to-many class="com.model.Buch" />
+        </set>
+    </class>
+</hibernate-mapping>

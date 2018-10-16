@@ -1,0 +1,2 @@
+com.mimo.controller.RegistrationServlet
+RegistrationServlet
